@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC "-//Puppy Crawl//DTD Suppressions 1.1//EN" "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+<suppressions>
+    <!-- Only include FileLengthCheck suppression in this file -->
+    <!-- Other suppressions should be annotated inside java sources using CHECKSTYLE:OFF/ON syntax -->
+
+    <!-- <suppress files="Xxx.java" checks="FileLengthCheck"/> />-->
+    <suppress files="SwaggerConfiguration.java" checks="FileLengthCheck"/>
+    <suppress files="SunpayTargetRequestSchema.java" checks="FileLengthCheck"/>
+</suppressions>

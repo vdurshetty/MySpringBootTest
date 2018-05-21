@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava {
+    //Enable compilation in a separate daemon process
+    options.fork = true
+    //Enable incremental compilation
+    options.incremental = true
+
+    options.compilerArgs = ["-Xlint:unchecked", "-Xlint:deprecation"]
+}
+
+compileTestJava {
+    println "Hello"
+    options.compilerArgs = ["-Xlint:unchecked", "-Xlint:deprecation"]
+}
+

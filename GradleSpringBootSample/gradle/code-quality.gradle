@@ -1,0 +1,12 @@
+apply plugin: 'checkstyle'
+
+checkstyle {
+    //def configDir = "src/config"
+    // The Default folder is "config/checkstyle"
+    sourceSets = [ project.sourceSets.main ]
+    configFile = new File("$configDir/checkstyle.xml")
+    configProperties = [
+            'checkstyle.header.file': "$configDir/my_header.txt",
+            'checkstyle.suppressions.file': "$configDir/checkstyle_suppressions.xml"
+    ]
+}

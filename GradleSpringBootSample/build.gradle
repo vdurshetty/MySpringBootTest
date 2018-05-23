@@ -21,6 +21,7 @@ plugins {
 apply plugin: 'java-library'
 apply plugin: 'eclipse'
 apply plugin: 'java'
+apply plugin: 'war'
 //apply plugin: 'spring-boot'
 //apply plugin: 'org.springframework.boot.gradle.plugin.SpringBootPlugin'
 //apply plugin: 'cobertura'
@@ -29,11 +30,11 @@ apply plugin: 'java'
 
 // Testing
 
-//println "Hello Venu :"
+println "Hello Venu : ${springboot_version}"
 
 apply from: file('gradle/java.gradle')
 //apply from: file('gradle/code-quality.gradle')
-apply from: file('gradle/code-coverage.gradle')
+//apply from: file('gradle/code-coverage.gradle')
 
 //plugins {
 //    id "org.springframework.boot" version "2.0.1.RELEASE"
@@ -64,14 +65,14 @@ task integrationTest(type: Test) {
 
 
 dependencies {
-    compile('org.springframework:spring-context:4.3.10.RELEASE',
-    		'org.springframework:spring-web:4.3.10.RELEASE',
-    		'org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE',
-    		'com.fasterxml.jackson.core:jackson-databind:2.5.0',
-    		'com.fasterxml.jackson.core:jackson-core:2.5.0',
-    		'org.springframework:spring-webmvc:4.3.10.RELEASE',
-			'org.springframework:spring-beans:4.3.10.RELEASE',
-			'org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE',
+    compile('org.springframework:spring-context:${spring_version}',
+    		'org.springframework:spring-web:${spring_version}',
+    		'org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE',
+    		'com.fasterxml.jackson.core:jackson-databind:${jacksion_version}',
+    		'com.fasterxml.jackson.core:jackson-core:${jacksion_version}',
+    		'org.springframework:spring-webmvc:${spring_version}',
+			'org.springframework:spring-beans:${spring_version}',
+			'org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE',
 			'io.springfox:springfox-swagger2:2.8.0',
 			'io.springfox:springfox-swagger-ui:2.8.0',
 			'org.springframework.boot:spring-boot-starter-tomcat',
@@ -83,7 +84,7 @@ dependencies {
 	
 	testCompile (
 		'junit:junit:4.12',
-		'org.springframework.boot:spring-boot-starter-test:1.5.4.RELEASE'
+		'org.springframework.boot:spring-boot-starter-test:2.0.2.RELEASE'
 		)
 		// https://mvnrepository.com/artifact/org.mockito/mockito-core
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '2.18.3'
@@ -109,4 +110,10 @@ jar {
                    'Implementation-Version': 1.0,
                    'Main-Class': 'com.venu.SpringBootRestApiApp'
     }
+}
+
+
+war {
+	baseName = 'GradleSpringBootSample.war'
+	version =  '1.0'
 }

@@ -41,10 +41,13 @@ public class EmpController {
 	
 	
 	
+	
+	
+	
 
 	@RequestMapping(value = "/hai", method = RequestMethod.GET)
 	public String hello() {
-		return "Hai Venu";
+			return "Hai Venu";
 	}
 
 	
@@ -92,6 +95,7 @@ public class EmpController {
 	    @ResponseBody
 	    public ErrorResponse handleFailures(Exception e)
 	    {
+	    	e.printStackTrace();
 	        ErrorResponse error = new ErrorResponse();
 	        error.setDesc(e.getLocalizedMessage());
 	        error.setMessage(e.getMessage());

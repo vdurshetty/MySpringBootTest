@@ -3,6 +3,8 @@ package com.venu.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.venu.model.Address;
@@ -13,6 +15,9 @@ public class EmpServiceImpl implements EmpService{
 	
 	
 	private List<Emp> empList;
+	
+	@Autowired
+	private Environment env;
 
 	public EmpServiceImpl() {
 	
@@ -57,6 +62,8 @@ public class EmpServiceImpl implements EmpService{
 
 	@Override
 	public List<Emp> getAllEmps() throws Exception {
+		System.out.println("Applicaiton Properties log file value ;" + env.getProperty("logfile"));
+		System.out.println("Job1 Properties lastname :" + env.getProperty("lastname"));
 		return empList;
 	}
 	

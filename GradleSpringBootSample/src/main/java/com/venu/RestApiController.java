@@ -52,6 +52,7 @@ public class RestApiController {
  
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<?> listAllUsers() {
+    	LOGGER.debug("In List Users Method");
         List<User> users = userService.findAllUsers();
         //users = new ArrayList<User>();
         System.out.println("Users Count is : " + users.size());
@@ -60,7 +61,11 @@ public class RestApiController {
             // You many decide to return HttpStatus.NOT_FOUND
             
         }
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+        
+        ResponseEntity<?> res = new ResponseEntity<List<User>>(users, HttpStatus.OK); 
+        
+        LOGGER.error("Response is :" + res.getBody().toString());
+        return res;
     }
  
     // -------------------Retrieve Single User------------------------------------------
